@@ -1,22 +1,5 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { useQuery } from 'urql';
-
-const AllUsersQuery = gql`
-  query {
-    allUsers {
-      id
-      name
-    }
-  }
-`;
-
-type AllUsersData = {
-  allUsers: {
-    id: string;
-    name: string;
-  }[];
-};
 
 const AllUsers: React.FC = () => {
   const [result] = useQuery<AllUsersData>({
