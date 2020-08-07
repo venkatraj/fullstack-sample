@@ -1,10 +1,8 @@
 import React from 'react';
-import { useQuery } from 'urql';
+import { useAllUsersQuery } from '../generated/graphql';
 
 const AllUsers: React.FC = () => {
-  const [result] = useQuery<AllUsersData>({
-    query: AllUsersQuery,
-  });
+  const [result] = useAllUsersQuery();
 
   const { data, fetching, error } = result;
   if (fetching) return <p>Loading...</p>;
